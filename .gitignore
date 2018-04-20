@@ -2,6 +2,10 @@ Library/
 Temp/
 ProjectSettings/
 Packages/
+VSCode/
+VSCode.meta
+.vs/
+.vscode/
 *.csproj
 *.sln
 Assembly-CSharp*
