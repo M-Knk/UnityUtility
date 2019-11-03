@@ -10,7 +10,12 @@ namespace UnityUtility.OutsideResource
 		public static IEnumerator GetTexture(string file, System.Action<Texture2D> onComplete)
 		{
 			UnityWebRequest www = UnityWebRequestTexture.GetTexture(file);
-			yield return www.SendWebRequest();
+			www.SendWebRequest();
+
+			while (!www.isDone)
+			{
+				yield return null;
+			}
 
 			Texture2D myTexture = null;
 			if (www.isNetworkError || www.isHttpError)
